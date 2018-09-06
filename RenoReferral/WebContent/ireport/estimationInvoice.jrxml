@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="estimationInvoice" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isFloatColumnFooter="true" uuid="8a63d4dd-235e-4741-850f-a1ffc32a26bf">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="estimation_id" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="logo_path" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     *,
+     contractor.`contractorId` AS contractor_contractorId,
+     contractor.`contractorRegDate` AS contractor_contractorRegDate,
+     contractor.`contractorName` AS contractor_contractorName,
+     contractor.`contractorEmail` AS contractor_contractorEmail,
+     contractor.`contractorMobile` AS contractor_contractorMobile,
+     contractor.`contractorAddress` AS contractor_contractorAddress,
+     contractor.`contractorCompany` AS contractor_contractorCompany,
+     contractor.`password` AS contractor_password,
+     contractor.`subscriptionId` AS contractor_subscriptionId,
+     contractor.`prevsubscriptionId` AS contractor_prevsubscriptionId,
+     contractor.`contractorPicture` AS contractor_contractorPicture
+FROM
+     `lead_estimation` lead_estimation INNER JOIN `lead_estimation_elements` lead_estimation_elements ON lead_estimation.`estimation_id` = lead_estimation_elements.`estimation_id`
+     INNER JOIN `leads` leads ON lead_estimation.`LeadId` = leads.`LeadID`
+     INNER JOIN `contractor` contractor ON lead_estimation.`contractorId` = contractor.`contractorId`
+WHERE
+     lead_estimation.estimation_id = $P{estimation_id}]]>
+	</queryString>
+	<field name="estimation_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estimation_date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estimation_title" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="LeadId" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="contractorId" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estimation_status" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="web_path" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="real_path" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estimation_element_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="item_code" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="date" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="service_description" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="quantity" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="price" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tax" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="amount" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ServiceId" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Timestamp" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Description" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Address" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Mobile" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="bugget_range_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PostalCode" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Image" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sell_count" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="max_byers" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="lead_status" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="lead_type" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="contractorRegDate" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="contractorName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="contractorEmail" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="contractorMobile" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="contractorAddress" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="contractorCompany" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="password" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="subscriptionId" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="prevsubscriptionId" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="contractorPicture" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="contractor_contractorId" class="java.lang.Integer"/>
+	<field name="contractor_contractorRegDate" class="java.sql.Date"/>
+	<field name="contractor_contractorName" class="java.lang.String"/>
+	<field name="contractor_contractorEmail" class="java.lang.String"/>
+	<field name="contractor_contractorMobile" class="java.lang.Long"/>
+	<field name="contractor_contractorAddress" class="java.lang.String"/>
+	<field name="contractor_contractorCompany" class="java.lang.String"/>
+	<field name="contractor_password" class="java.lang.String"/>
+	<field name="contractor_subscriptionId" class="java.lang.Integer"/>
+	<field name="contractor_prevsubscriptionId" class="java.lang.Integer"/>
+	<field name="contractor_contractorPicture" class="java.lang.String"/>
+	<group name="Group1"/>
+	<group name="Group2"/>
+	<group name="Group3"/>
+	<group name="Group4"/>
+	<background>
+		<band height="802">
+			<rectangle>
+				<reportElement x="1" y="0" width="554" height="801" uuid="bd20876a-fcc3-447d-9f67-e22d2dd13fc0"/>
+			</rectangle>
+		</band>
+	</background>
+	<title>
+		<band height="129">
+			<staticText>
+				<reportElement mode="Opaque" x="340" y="10" width="100" height="32" forecolor="#FFFFFF" backcolor="#CCCCCC" uuid="4e0c0668-6826-46ef-874b-2b6bc9353558"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESTIMATION]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="440" y="10" width="100" height="32" forecolor="#FFFFFF" backcolor="#CCCCCC" uuid="206252a6-f679-45cb-9419-8ee93b9fa64c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{estimation_id}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="340" y="54" width="100" height="32" forecolor="#FFFFFF" backcolor="#CCCCCC" uuid="5927e1f4-722d-4017-9585-49c894a425ea"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATE]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="440" y="54" width="100" height="32" forecolor="#FFFFFF" backcolor="#CCCCCC" uuid="05f491c3-10ac-43f0-9a21-89499559dfa7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{estimation_date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="179" y="10" width="150" height="32" forecolor="#FFFFFF" backcolor="#CCCCCC" uuid="ef08192b-17f0-41fb-b0d6-4ac4df11dc25"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RECEIVER]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="182" y="56" width="150" height="17" uuid="fbe0c7b5-eeff-4562-9667-aa6db0cf245a"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="182" y="73" width="150" height="20" uuid="289b6359-bb99-46ac-91f7-72ba8bceb7df"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Address}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="182" y="93" width="150" height="20" uuid="176fe660-5602-48d7-84e9-3a57edf7e3f6"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Mobile}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="11" y="128" width="529" height="1" uuid="141246fa-7431-4009-ac1d-c89619f6eb86"/>
+			</line>
+			<textField>
+				<reportElement x="15" y="74" width="150" height="20" uuid="70240f19-bf4e-4f75-bb51-91b86040376a"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{contractor_contractorAddress}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="15" y="94" width="150" height="20" uuid="b8a495ff-6d34-4294-97d5-e885dd2cb19f"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{contractor_contractorMobile}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="15" y="57" width="150" height="17" uuid="d0e4f49f-b1f9-4dea-b89f-d284457bbcf0"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{contractorName}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="11" y="10" width="154" height="44" uuid="d3dc174e-2a85-4cf0-ba7e-88dbf424ef7d"/>
+				<imageExpression><![CDATA[$P{logo_path}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<staticText>
+				<reportElement mode="Opaque" x="11" y="0" width="201" height="20" forecolor="#FFFFFF" backcolor="#CCCCCC" uuid="d74b416a-bbaf-4182-8499-16b973fcf115"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESCRIPTION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="212" y="0" width="116" height="20" forecolor="#FFFFFF" backcolor="#CCCCCC" uuid="e991b8c9-c4aa-459e-91a2-8c7017ee458e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[QUANTITY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="328" y="0" width="100" height="20" forecolor="#FFFFFF" backcolor="#CCCCCC" uuid="c5c4c1fb-548b-4984-a1ff-a4e750bab835"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRICE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="428" y="0" width="112" height="20" forecolor="#FFFFFF" backcolor="#CCCCCC" uuid="7ecc23cc-4c46-4531-b034-72ec74201a38"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AMOUNT]]></text>
+			</staticText>
+			<line>
+				<reportElement x="11" y="20" width="529" height="1" uuid="0e990c0d-142b-4596-b2da-d19725376e54"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23">
+			<textField>
+				<reportElement x="11" y="0" width="201" height="20" uuid="7b51132d-48cc-407d-a6ec-ea5c18110455"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{service_description}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="212" y="0" width="116" height="20" uuid="f3a9efe5-cdde-4fdb-bb40-6a26626b035e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{quantity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="328" y="0" width="100" height="20" uuid="beb24e7d-ee11-4e9a-8674-7ab78fdf7ef9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{price}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="428" y="0" width="112" height="20" uuid="60b9e811-3cf6-47ad-80d8-d27c5e0947c9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="11" y="20" width="529" height="2" uuid="94b14cd9-7463-4102-9737-31c237aec1ae"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="26">
+			<textField>
+				<reportElement mode="Opaque" x="428" y="1" width="112" height="20" forecolor="#FFFFFF" backcolor="#CCCCCC" uuid="717bbc47-d7e2-48aa-a6f2-9b6465b2baa2"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="b2a0bc38-a4ba-4b2d-b244-4be870e59310"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="329" y="1" width="99" height="20" forecolor="#FFFFFF" backcolor="#CCCCCC" uuid="dc226ad0-1115-4c8c-b148-e10301ccdef6"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
